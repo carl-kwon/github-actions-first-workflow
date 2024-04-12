@@ -48,9 +48,8 @@ jobs:
         coverage run -m unittest discover -s tests
         coverage xml -o coverage.xml
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
       with:
-        env_vars: OS,PYTHON
-        fail_ci_if_error: true
-        verbose: true
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: carl-kwon/github-actions-first-workflow
