@@ -1,9 +1,4 @@
-# github-actions-first-workflow
-
-
-[PyTest](https://docs.github.com/ko/actions/automating-builds-and-tests/building-and-testing-python)
-
-```
+# https://docs.github.com/ko/actions/automating-builds-and-tests/building-and-testing-python
 name: PyTest
 
 on:
@@ -28,4 +23,3 @@ jobs:
       run: |
         pip install pytest pytest-cov
         pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
-```
