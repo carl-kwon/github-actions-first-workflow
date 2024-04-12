@@ -1,0 +1,28 @@
+# Lint the codebase using pre-commit
+name: Lint
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository to access its content
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python 3.7
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+
+      # Run pre-commit
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
+        env:
+          SKIP: no-commit-to-branch
